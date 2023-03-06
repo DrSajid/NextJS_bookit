@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const dbConnect = () => {
   if (mongoose.connection.readyState >= 1) {
@@ -8,4 +8,4 @@ const dbConnect = () => {
   mongoose.connect(process.env.DB_LOCAL_URI);
 };
 
-export default dbConnect;
+module.exports = dbConnect;

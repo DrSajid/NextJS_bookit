@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import { Schema, model, models } from "mongoose";
+const mongoose = require("mongoose");
+const { Schema, model, models } = require("mongoose");
 
 const roomSchema = new Schema({
   name: {
@@ -111,4 +111,4 @@ const roomSchema = new Schema({
 });
 
 const Room = models.Room || model("Room", roomSchema);
-export default Room;
+module.exports = Room;
