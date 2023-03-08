@@ -1,6 +1,6 @@
-import Room from "../models/rooms";
-// import Test from "../models/testModel";
+import Room from "../models/room";
 
+// Get all rooms  => /api/rooms
 const allRooms = async (req, res) => {
   try {
     const rooms = await Room.find();
@@ -13,6 +13,25 @@ const allRooms = async (req, res) => {
     res.status(400).json({
       success: false,
       message: error.message,
+    });
+  }
+};
+
+// Get Single rooms  => /api/rooms/:id
+const getSingleRoom = async (req, res) => {
+  try {
+    const room = await Room.findById(req.query.id);
+    if (!room) {
+      throw new Error();
+    }
+    res.status(200).json({
+      success: true,
+      count: room,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: "Room not found with this ID",
     });
   }
 };
@@ -33,4 +52,4 @@ const newRoom = async (req, res) => {
   }
 };
 
-export { allRooms, newRoom };
+export { allRooms, newRoom, getSingleRoom };

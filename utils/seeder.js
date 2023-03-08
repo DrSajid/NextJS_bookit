@@ -1,5 +1,5 @@
 const rooms = require("../data/rooms");
-const Room = require("../models/rooms");
+const Room = require("../models/room");
 const mongoose = require("mongoose");
 
 // dbConnect();
